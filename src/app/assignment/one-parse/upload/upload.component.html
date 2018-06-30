@@ -1,0 +1,32 @@
+<h1 class = "text-center text-primary">{{title}}</h1>
+<a routerLink = '/upload'></a>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="fileUpload">File</label><br><br>
+            <input type="file" id="fileUpload" (change)="onFileChange($event)" #fileInput>
+        </div>
+    </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
+
+<div>
+  <table *ngIf="mainData">
+      <tr>
+          <td>Name</td>
+          <td>Email ID</td>
+      </tr>
+      <tr *ngFor = "let tableData of mainData">
+          <td>{{tableData.title}}</td>
+          <td>{{tableData.body}}</td>
+      </tr>
+  </table>
+</div>

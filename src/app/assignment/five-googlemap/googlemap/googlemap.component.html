@@ -1,0 +1,16 @@
+<h1 class = "text-center">{{title}}</h1>
+<hr>
+
+<div class="container">
+  <div class="form-group">
+    <input type="text" placeholder="Type the location" autocorrect = "off" autocapitalize = "off" spellcheck="off" class = "form-control" #search [formControl] = "searchControl">
+  </div>
+</div>
+
+<agm-map [latitude] = "latitude" [longitude] = "longitude" [scrollwheel]="false" [zoom]="zoom" (mapClick) = "onChooseLocation($event)">
+  <agm-marker 
+    [latitude] = "latitude" 
+    [longitude] = "longitude"
+    *ngIf = "locationChosen">
+  </agm-marker>
+</agm-map>

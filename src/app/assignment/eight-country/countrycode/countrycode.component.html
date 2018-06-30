@@ -1,0 +1,24 @@
+<h1 class = "text-center">{{ title }}</h1>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <select class="form-control" (change) = "num($event.target.value)">
+                <option value=" " selected disabled>Select country</option>
+                <option *ngFor="let data of AllData" value="{{ data.name }}" #name>{{data.name}} / {{data.nativeName}}</option>
+            </select>
+            <div class="row" *ngIf = "data">
+                <div class="col-md-1">
+                    <img src="{{data.flag}}" [alt]="currValue" class = "image">                    
+                </div>
+                <div class="col-md-2">
+                    <p>{{data.callingCodes}}</p>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" placeholder="Enter the Mobile Number" class = "form-control" #number>
+                </div>
+            </div>
+            <button type = "submit" class = "btn btn-success form-control">Submit</button>
+        </div>
+    </div>
+</div>
